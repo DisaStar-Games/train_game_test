@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://cffsfrc6wwpk1"]
+
+[ext_resource type="Script" uid="uid://dyhhp6opa8d2x" path="res://Script/train.gd" id="1_t14mk"]
+[ext_resource type="Script" uid="uid://c5ld5gshja5ty" path="res://Script/train_button.gd" id="2_lx02v"]
+[ext_resource type="Script" uid="uid://v5saokb5teq" path="res://Script/furnace.gd" id="3_t6p60"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fw8fj"]
+size = Vector3(8, 0.1171875, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewygc"]
+albedo_color = Color(0.99303955, 0, 0.22257638, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_530ug"]
+material = SubResource("StandardMaterial3D_ewygc")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewygc"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pet6t"]
+albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fw8fj"]
+material = SubResource("StandardMaterial3D_pet6t")
+top_radius = 0.37597656
+bottom_radius = 0.37597656
+height = 1.7333984
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fw8fj"]
+height = 1.7714844
+radius = 0.3881836
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kogu2"]
+albedo_color = Color(1, 0.4745098, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8pme1"]
+material = SubResource("StandardMaterial3D_kogu2")
+size = Vector3(0.337265, 0.4892578, 0.64501953)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_530ug"]
+albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_04sud"]
+material = SubResource("StandardMaterial3D_530ug")
+size = Vector3(0.13671875, 0.53308105, 3.1836853)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibyd1"]
+size = Vector3(0.14355469, 0.52734375, 3.1999512)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6p60"]
+albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ewygc"]
+material = SubResource("StandardMaterial3D_t6p60")
+size = Vector3(7.9731445, 0.5, 0.098)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_04sud"]
+size = Vector3(8, 0.5, 0.098)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lx02v"]
+albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibyd1"]
+material = SubResource("StandardMaterial3D_lx02v")
+size = Vector3(8, 0.5, 0.098)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6036c"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6036c"]
+material = SubResource("StandardMaterial3D_6036c")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6p60"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_un3ck"]
+albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fw8fj"]
+material = SubResource("StandardMaterial3D_un3ck")
+size = Vector3(8, 0.11035156, 3)
+
+[node name="Train" type="AnimatableBody3D" unique_id=1228962814 node_paths=PackedStringArray("throttle_button", "brake_button")]
+sync_to_physics = false
+script = ExtResource("1_t14mk")
+throttle_button = NodePath("Body/ThrottleButton")
+brake_button = NodePath("Body/BrakeButton")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1210288296]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.99999994, -0.44140625, -1.5)
+shape = SubResource("BoxShape3D_fw8fj")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1393281011]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="BrakeButton" type="StaticBody3D" parent="Body" unique_id=1414047144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3.1786513e-08)
+script = ExtResource("2_lx02v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/BrakeButton" unique_id=882241271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, -0.158, 0.068)
+mesh = SubResource("BoxMesh_530ug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/BrakeButton" unique_id=25179787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022, -0.15, 0.068)
+shape = SubResource("BoxShape3D_ewygc")
+
+[node name="Furnace" type="StaticBody3D" parent="Body" unique_id=950393332 node_paths=PackedStringArray("train")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5507879, 0, 2.1017728)
+script = ExtResource("3_t6p60")
+train = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Furnace" unique_id=1025765366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50287336, 0)
+mesh = SubResource("CylinderMesh_fw8fj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Furnace" unique_id=705982389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5163303, 0)
+shape = SubResource("CylinderShape3D_fw8fj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/Furnace" unique_id=634559653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00089263916, 0.040591866, -0.05402994)
+mesh = SubResource("BoxMesh_8pme1")
+
+[node name="FrontWall" type="StaticBody3D" parent="Body" unique_id=535314040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0143998, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/FrontWall" unique_id=392575831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46287894, -0.23345947, 1.0053558)
+mesh = SubResource("BoxMesh_04sud")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/FrontWall" unique_id=735161093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46788454, -0.23632813, 1.0047607)
+shape = SubResource("BoxShape3D_ibyd1")
+
+[node name="Wall2" type="StaticBody3D" parent="Body" unique_id=1725198611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3995011)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wall2" unique_id=1344451595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5001698, -0.22454834, -0.14562988)
+mesh = SubResource("BoxMesh_ewygc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Wall2" unique_id=2111423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.22, -0.14)
+shape = SubResource("BoxShape3D_04sud")
+
+[node name="Wall" type="StaticBody3D" parent="Body" unique_id=1682721762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7049556)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wall" unique_id=819691301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5001698, -0.22454834, -0.14562988)
+mesh = SubResource("BoxMesh_ibyd1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/Wall" unique_id=1104135891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.22, -0.14)
+shape = SubResource("BoxShape3D_04sud")
+
+[node name="ThrottleButton" type="StaticBody3D" parent="Body" unique_id=2069399496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+script = ExtResource("2_lx02v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/ThrottleButton" unique_id=1379031638]
+transform = Transform3D(1, 0, 0, 0, 0.9999985, -0.00171503, 0, 0.00171503, 0.9999985, 0.028442383, -0.15213764, -0.22509766)
+mesh = SubResource("BoxMesh_6036c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/ThrottleButton" unique_id=549882145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028, -0.15, -0.22)
+shape = SubResource("BoxShape3D_t6p60")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1550072964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.44482425, 1)
+mesh = SubResource("BoxMesh_fw8fj")

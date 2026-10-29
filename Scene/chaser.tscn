@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://slx87afdw7l4"]
+
+[ext_resource type="Script" uid="uid://ekrum7dr5lna" path="res://Script/chaser.gd" id="1_uiqsn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fw8fj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04sud"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ibyd1"]
+material = SubResource("StandardMaterial3D_04sud")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uiqsn"]
+size = Vector3(1.1144986, 1.6240692, 1.2558899)
+
+[node name="Chaser" type="CharacterBody3D" unique_id=1292656239]
+script = ExtResource("1_uiqsn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1959021788]
+shape = SubResource("CapsuleShape3D_fw8fj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=759368820]
+mesh = SubResource("CapsuleMesh_ibyd1")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=966425812]
+
+[node name="KillZone" type="Area3D" parent="." unique_id=58613042]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone" unique_id=1627246442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011567354, 0.11315155, -0.019889116)
+shape = SubResource("BoxShape3D_uiqsn")

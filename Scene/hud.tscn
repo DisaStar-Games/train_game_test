@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://da4txyx41ia3f"]
+
+[ext_resource type="Script" uid="uid://dcduu6skaddum" path="res://Script/hud.gd" id="1_cevek"]
+[ext_resource type="Script" uid="uid://bn0wlq4lofam2" path="res://Script/control.gd" id="2_3quw2"]
+
+[node name="HUD" type="CanvasLayer" unique_id=118760314]
+script = ExtResource("1_cevek")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=970574857]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -27.0
+offset_right = 193.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CenterContainer" unique_id=1166026761]
+layout_mode = 2
+script = ExtResource("2_3quw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1042930078]
+offset_right = 394.0
+offset_bottom = 129.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2000861974]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1629271360]
+layout_mode = 2
+text = "Train Fuel"
+
+[node name="FuelBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1097471106]
+layout_mode = 2
+
+[node name="CoalContainer" type="VBoxContainer" parent="MarginContainer" unique_id=140324525]
+layout_mode = 2
+alignment = 2
+
+[node name="CoalLabel" type="Label" parent="MarginContainer/CoalContainer" unique_id=1994890318]
+layout_mode = 2
+text = "Coal:"
+
+[node name="Label" type="Label" parent="MarginContainer/CoalContainer/CoalLabel" unique_id=575620453]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 92.0
+offset_bottom = 24.0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

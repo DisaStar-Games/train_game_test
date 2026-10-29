@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c0c288k3ku705"]
+
+[ext_resource type="Script" uid="uid://b2wuljkbvmwls" path="res://Script/player.gd" id="1_kelma"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_fw8fj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fw8fj"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1910926179]
+script = ExtResource("1_kelma")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=178815619]
+
+[node name="Character" type="Node3D" parent="Pivot" unique_id=1927227793]
+
+[node name="CameraPivot" type="Node3D" parent="Pivot/Character" unique_id=219304323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44597495, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot/Character/CameraPivot" unique_id=1558608966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52889276, -0.46266735)
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot/Character/CameraPivot/Camera3D" unique_id=557385979]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, -0.10724473, 0.46266735)
+exclude_parent = false
+target_position = Vector3(0, 0, -3)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Character" unique_id=1115150903]
+mesh = SubResource("CapsuleMesh_fw8fj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1399538977]
+shape = SubResource("CapsuleShape3D_fw8fj")
